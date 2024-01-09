@@ -1,22 +1,22 @@
-import { screen } from '@testing-library/react';
-import React from 'react';
+import { screen } from '@testing-library/react'
+import React from 'react'
 
-import PriceSummary from '@/pages/cart/components/PriceSummary';
-import { mockUseCartStore } from '@/utils/test/mockZustandStore';
-import render from '@/utils/test/render';
+import PriceSummary from '@/pages/cart/components/PriceSummary'
+import { mockUseCartStore } from '@/utils/test/mockZustandStore'
+import render from '@/utils/test/render'
 
-const navigateFn = vi.fn();
+const navigateFn = vi.fn()
 
 vi.mock('react-router-dom', async () => {
-  const original = await vi.importActual('react-router-dom');
+  const original = await vi.importActual('react-router-dom')
   return {
     ...original,
     useNavigate: () => navigateFn,
     useLocation: () => ({
       pathname: 'pathname',
     }),
-  };
-});
+  }
+})
 
 beforeEach(() => {
   mockUseCartStore({
@@ -50,19 +50,19 @@ beforeEach(() => {
     },
     totalCount: 7,
     totalPrice: 4195,
-  });
-});
+  })
+})
 
 it('총 구매 아이템 수량과 가격이 노출된다("총 7개, $4,195.00")', async () => {
-  await render(<PriceSummary />);
+  await render(<PriceSummary />)
 
-  expect(screen.getByText('총 7개, $4,195.00')).toBeInTheDocument();
-});
+  expect(screen.getByText('총 7개, $4,195.00')).toBeInTheDocument()
+})
 
 it('구매하기 버튼을 클릭할 경우 "/purchase"경로와 함께 navigate 함수가 호출된다', async () => {
-  const { user } = await render(<PriceSummary />);
+  const { user } = await render(<PriceSummary />)
 
-  await user.click(screen.getByText('구매하기'));
+  await user.click(screen.getByText('구매하기'))
 
-  expect(navigateFn).toHaveBeenNthCalledWith(1, '/purchase');
-});
+  expect(navigateFn).toHaveBeenNthCalledWith(1, '/purchase')
+})

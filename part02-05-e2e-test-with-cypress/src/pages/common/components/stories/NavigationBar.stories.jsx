@@ -1,39 +1,37 @@
-import { rest } from 'msw';
-import React, { useEffect } from 'react';
+import { rest } from 'msw'
+import React, { useEffect } from 'react'
 
-import { apiRoutes } from '@/apiRoutes';
-import NavigationBar from '@/pages/common/components/NavigationBar';
-import { useUserStore } from '@/store/user';
-import { pick } from '@/utils/common';
+import { apiRoutes } from '@/apiRoutes'
+import NavigationBar from '@/pages/common/components/NavigationBar'
+import { useUserStore } from '@/store/user'
+import { pick } from '@/utils/common'
 
-const API_DOMAIN = 'http://localhost:3000';
+const API_DOMAIN = 'http://localhost:3000'
 
 export default {
   title: '공통/네비게이션바',
   component: NavigationBar,
-};
+}
 
-export const Default = { name: '로그아웃 상태' };
+export const Default = { name: '로그아웃 상태' }
 
 const LoggedInNavigationBar = () => {
-  const { setIsLogin } = useUserStore(state =>
-    pick(state, 'isLogin', 'setIsLogin'),
-  );
+  const { setIsLogin } = useUserStore(state => pick(state, 'isLogin', 'setIsLogin'))
   useEffect(() => {
-    setIsLogin(true);
+    setIsLogin(true)
 
     return () => {
-      setIsLogin(false);
-    };
-  }, [setIsLogin]);
+      setIsLogin(false)
+    }
+  }, [setIsLogin])
 
-  return <NavigationBar />;
-};
+  return <NavigationBar />
+}
 
 export const LoggedIn = {
   name: '로그인 상태',
   render: () => <LoggedInNavigationBar />,
-};
+}
 
 LoggedIn.parameters = {
   msw: {
@@ -45,8 +43,8 @@ LoggedIn.parameters = {
             email: 'maria@mail.com',
             name: 'Maria',
           }),
-        );
+        )
       }),
     ],
   },
-};
+}

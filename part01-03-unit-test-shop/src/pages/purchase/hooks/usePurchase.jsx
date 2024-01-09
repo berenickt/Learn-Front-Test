@@ -1,6 +1,5 @@
-import { apiRoutes } from '@/apiRoutes';
-import { usePost } from '@/helpers/reactQuery';
-import { pathToUrl } from '@/helpers/url';
+import { apiRoutes } from '@/apiRoutes'
+import { usePost } from '@/helpers/reactQuery'
+import { pathToUrl } from '@/helpers/url'
 
-export const usePurchase = updater =>
-  usePost({ url: pathToUrl(apiRoutes.purchase), updater });
+export const usePurchase = updater => usePost({ url: pathToUrl(apiRoutes.purchase), updater })

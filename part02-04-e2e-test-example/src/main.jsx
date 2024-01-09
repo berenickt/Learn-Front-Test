@@ -1,10 +1,10 @@
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { RouterProvider } from 'react-router-dom';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import { RouterProvider } from 'react-router-dom'
 
-import router from '@/router';
+import router from '@/router'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -13,9 +13,9 @@ const queryClient = new QueryClient({
       useErrorBoundary: true,
     },
   },
-});
+})
 
-const isDevEnvironment = import.meta.env.DEV;
+const isDevEnvironment = import.meta.env.DEV
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -24,4 +24,4 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <RouterProvider router={router} />
     </QueryClientProvider>
   </React.StrictMode>,
-);
+)

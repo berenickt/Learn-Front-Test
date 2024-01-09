@@ -1,21 +1,12 @@
-import {
-  Box,
-  Typography,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableRow,
-  Paper,
-} from '@mui/material';
-import React from 'react';
+import { Box, Typography, Table, TableBody, TableCell, TableContainer, TableRow, Paper } from '@mui/material'
+import React from 'react'
 
-import { useCartStore } from '@/store/cart';
-import { pick } from '@/utils/common';
-import { formatPrice } from '@/utils/formatter';
+import { useCartStore } from '@/store/cart'
+import { pick } from '@/utils/common'
+import { formatPrice } from '@/utils/formatter'
 
 const ItemList = () => {
-  const { cart } = useCartStore(state => pick(state, 'cart'));
+  const { cart } = useCartStore(state => pick(state, 'cart'))
 
   return (
     <Box mt={2}>
@@ -24,8 +15,8 @@ const ItemList = () => {
       </Typography>
       <ItemTable cart={cart} />
     </Box>
-  );
-};
+  )
+}
 
 export const ItemTable = ({ cart }) => (
   <TableContainer component={Paper}>
@@ -41,6 +32,6 @@ export const ItemTable = ({ cart }) => (
       </TableBody>
     </Table>
   </TableContainer>
-);
+)
 
-export default ItemList;
+export default ItemList

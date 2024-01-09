@@ -1,18 +1,18 @@
-import { Box, FormControl, TextField, Button } from '@mui/material';
-import React from 'react';
-import { useForm } from 'react-hook-form';
-import { toast } from 'react-hot-toast';
-import { useNavigate } from 'react-router-dom';
+import { Box, FormControl, TextField, Button } from '@mui/material'
+import React from 'react'
+import { useForm } from 'react-hook-form'
+import { toast } from 'react-hot-toast'
+import { useNavigate } from 'react-router-dom'
 
-import { pageRoutes } from '@/apiRoutes';
-import { EMAIL_PATTERN, TOAST_ID } from '@/constants';
-import { useRegister } from '@/pages/register/hooks/useRegister';
+import { pageRoutes } from '@/apiRoutes'
+import { EMAIL_PATTERN, TOAST_ID } from '@/constants'
+import { useRegister } from '@/pages/register/hooks/useRegister'
 
-const avatar = 'https://api.lorem.space/image/face?w=640&h=480&r=867';
+const avatar = 'https://api.lorem.space/image/face?w=640&h=480&r=867'
 
 const Forms = () => {
-  const navigate = useNavigate();
-  const { mutate } = useRegister();
+  const navigate = useNavigate()
+  const { mutate } = useRegister()
   const {
     register,
     handleSubmit,
@@ -20,30 +20,30 @@ const Forms = () => {
     setError,
   } = useForm({
     defaultValues: { email: '', name: '', password: '' },
-  });
+  })
 
   const handleClickRegister = handleSubmit(forms => {
-    const users = { ...forms, avatar };
+    const users = { ...forms, avatar }
 
     mutate(users, {
       onSuccess: () => {
-        toast.success('가입 성공!', { id: TOAST_ID });
-        navigate(pageRoutes.login);
+        toast.success('가입 성공!', { id: TOAST_ID })
+        navigate(pageRoutes.login)
       },
       onError: err => {
         if (err?.response?.data?.field) {
-          const { field, errorCode, message } = err.response.data;
-          setError(field, { type: errorCode, message });
-          return;
+          const { field, errorCode, message } = err.response.data
+          setError(field, { type: errorCode, message })
+          return
         }
 
         toast.error('잠시 문제가 발생했습니다! 다시 시도해 주세요.', {
           id: TOAST_ID,
-        });
-        console.error(err);
+        })
+        console.error(err)
       },
-    });
-  });
+    })
+  })
 
   return (
     <>
@@ -100,7 +100,7 @@ const Forms = () => {
         </Button>
       </Box>
     </>
-  );
-};
+  )
+}
 
-export default Forms;
+export default Forms

@@ -1,14 +1,14 @@
-import React from 'react';
+import React from 'react'
 
-import CartTable from '@/pages/cart/components/CartTable';
-import EmptyNotice from '@/pages/cart/components/EmptyNotice';
-import Layout, { authStatusType } from '@/pages/common/components/Layout';
-import { useCartStore } from '@/store/cart';
-import { pick } from '@/utils/common';
+import CartTable from '@/pages/cart/components/CartTable'
+import EmptyNotice from '@/pages/cart/components/EmptyNotice'
+import Layout, { authStatusType } from '@/pages/common/components/Layout'
+import { useCartStore } from '@/store/cart'
+import { pick } from '@/utils/common'
 
 const Cart = () => {
-  const { cart } = useCartStore(state => pick(state, 'cart'));
-  const isExist = Object.keys(cart).length;
+  const { cart } = useCartStore(state => pick(state, 'cart'))
+  const isExist = Object.keys(cart).length
 
   return (
     <Layout
@@ -21,7 +21,7 @@ const Cart = () => {
     >
       {isExist ? <CartTable /> : <EmptyNotice />}
     </Layout>
-  );
-};
+  )
+}
 
-export default Cart;
+export default Cart

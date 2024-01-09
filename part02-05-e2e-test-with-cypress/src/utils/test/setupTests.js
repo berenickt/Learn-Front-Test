@@ -1,26 +1,26 @@
-import { setupServer } from 'msw/node';
-import '@testing-library/jest-dom';
+import { setupServer } from 'msw/node'
+import '@testing-library/jest-dom'
 
-import { handlers } from '@/__mocks__/handlers';
+import { handlers } from '@/__mocks__/handlers'
 
 /* msw */
-export const server = setupServer(...handlers);
+export const server = setupServer(...handlers)
 
 beforeAll(() => {
-  server.listen();
-});
+  server.listen()
+})
 
 afterEach(() => {
-  server.resetHandlers();
-  vi.clearAllMocks();
-});
+  server.resetHandlers()
+  vi.clearAllMocks()
+})
 
 afterAll(() => {
-  vi.resetAllMocks();
-  server.close();
-});
+  vi.resetAllMocks()
+  server.close()
+})
 
-vi.mock('zustand');
+vi.mock('zustand')
 
 // https://github.com/vitest-dev/vitest/issues/821
 Object.defineProperty(window, 'matchMedia', {
@@ -35,4 +35,4 @@ Object.defineProperty(window, 'matchMedia', {
     removeEventListener: vi.fn(),
     dispatchEvent: vi.fn(),
   })),
-});
+})

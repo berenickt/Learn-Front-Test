@@ -1,5 +1,5 @@
-import product from '@/__mocks__/response/product.json';
-import ProductCard from '@/pages/home/components/ProductCard';
+import product from '@/__mocks__/response/product.json'
+import ProductCard from '@/pages/home/components/ProductCard'
 
 export default {
   title: '홈/상품 카드',
@@ -10,14 +10,14 @@ export default {
       description: '상품의 정보',
     },
   },
-};
+}
 
 export const Default = {
   name: '기본',
   args: {
     product,
   },
-};
+}
 
 export const LongTitle = {
   args: {
@@ -28,7 +28,7 @@ export const LongTitle = {
     },
   },
   name: '타이틀이 긴 경우',
-};
+}
 
 export const LongCategoryName = {
   args: {
@@ -40,4 +40,4 @@ export const LongCategoryName = {
     },
   },
   name: '카테고리가 긴 경우',
-};
+}

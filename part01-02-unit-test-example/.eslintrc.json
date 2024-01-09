@@ -34,7 +34,8 @@
         },
         "newlines-between": "always"
       }
-    ]
+    ],
+    "semi": "off"
   },
   "globals": {
     "Set": true,
@@ -47,11 +48,7 @@
   },
   "overrides": [
     {
-      "files": [
-        "src/utils/test/**.js",
-        "src/**/*.spec.js",
-        "src/**/*.spec.jsx"
-      ],
+      "files": ["src/utils/test/**.js", "src/**/*.spec.js", "src/**/*.spec.jsx"],
       "plugins": ["vitest"],
       "rules": {
         "vitest/no-large-snapshots": "error",

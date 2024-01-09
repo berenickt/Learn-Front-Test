@@ -1,13 +1,5 @@
-import {
-  Card,
-  CardActions,
-  CardContent,
-  Button,
-  Typography,
-  Grid,
-  Skeleton,
-} from '@mui/material';
-import React from 'react';
+import { Card, CardActions, CardContent, Button, Typography, Grid, Skeleton } from '@mui/material'
+import React from 'react'
 
 const SkeletonProductCard = () => (
   <Grid item xs={6} sm={6} md={3}>
@@ -31,6 +23,6 @@ const SkeletonProductCard = () => (
       </CardActions>
     </Card>
   </Grid>
-);
+)
 
-export default SkeletonProductCard;
+export default SkeletonProductCard

@@ -1,6 +1,6 @@
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import { Box, Typography } from '@mui/material';
-import React from 'react';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle'
+import { Box, Typography } from '@mui/material'
+import React from 'react'
 
 const PageTitle = () => {
   return (
@@ -8,7 +8,7 @@ const PageTitle = () => {
       <AccountCircleIcon fontSize="large" />
       <Typography variant="h3">로그인</Typography>
     </Box>
-  );
-};
+  )
+}
 
-export default PageTitle;
+export default PageTitle

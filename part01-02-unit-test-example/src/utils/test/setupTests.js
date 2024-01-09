@@ -1,12 +1,12 @@
-import '@testing-library/jest-dom';
+import '@testing-library/jest-dom'
 
 afterEach(() => {
-  vi.clearAllMocks();
-});
+  vi.clearAllMocks()
+})
 
 afterAll(() => {
-  vi.resetAllMocks();
-});
+  vi.resetAllMocks()
+})
 
 // https://github.com/vitest-dev/vitest/issues/821
 Object.defineProperty(window, 'matchMedia', {
@@ -21,4 +21,4 @@ Object.defineProperty(window, 'matchMedia', {
     removeEventListener: vi.fn(),
     dispatchEvent: vi.fn(),
   })),
-});
+})

@@ -1,11 +1,11 @@
-import React from 'react';
+import React from 'react'
 
-import TextField from '@/components/TextField';
+import TextField from '@/components/TextField'
 
 export default {
   title: '텍스트 필드',
   component: TextField,
-};
+}
 
 export const Default = {
   name: '기본',
@@ -14,4 +14,4 @@ export const Default = {
       <TextField />
     </div>
   ),
-};
+}

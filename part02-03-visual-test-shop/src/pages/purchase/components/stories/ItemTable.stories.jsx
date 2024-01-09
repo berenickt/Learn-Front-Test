@@ -1,4 +1,4 @@
-import { ItemTable } from '@/pages/purchase/components/ItemList';
+import { ItemTable } from '@/pages/purchase/components/ItemList'
 
 export default {
   title: '구매/상품 리스트',
@@ -9,7 +9,7 @@ export default {
       description: '장바구니 상품',
     },
   },
-};
+}
 
 export const Default = {
   name: '상품 리스트',
@@ -43,4 +43,4 @@ export const Default = {
       },
     },
   },
-};
+}

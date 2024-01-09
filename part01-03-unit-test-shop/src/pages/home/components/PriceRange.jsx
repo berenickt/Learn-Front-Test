@@ -1,12 +1,5 @@
-import {
-  Box,
-  FormControl,
-  FormLabel,
-  OutlinedInput,
-  InputAdornment,
-  Typography,
-} from '@mui/material';
-import React from 'react';
+import { Box, FormControl, FormLabel, OutlinedInput, InputAdornment, Typography } from '@mui/material'
+import React from 'react'
 
 const PriceRange = ({ onChangeMinPrice, onChangeMaxPrice }) => {
   return (
@@ -34,7 +27,7 @@ const PriceRange = ({ onChangeMinPrice, onChangeMaxPrice }) => {
         </FormControl>
       </Box>
     </FormControl>
-  );
-};
+  )
+}
 
-export default PriceRange;
+export default PriceRange

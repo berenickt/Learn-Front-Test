@@ -1,8 +1,8 @@
-import React from 'react';
+import React from 'react'
 
-import Layout, { authStatusType } from '@/pages/common/components/Layout';
-import Forms from '@/pages/register/components/Forms';
-import PageTitle from '@/pages/register/components/PageTitle';
+import Layout, { authStatusType } from '@/pages/common/components/Layout'
+import Forms from '@/pages/register/components/Forms'
+import PageTitle from '@/pages/register/components/PageTitle'
 
 const RegisterPage = () => {
   return (
@@ -18,7 +18,7 @@ const RegisterPage = () => {
       <PageTitle />
       <Forms />
     </Layout>
-  );
-};
+  )
+}
 
-export default RegisterPage;
+export default RegisterPage

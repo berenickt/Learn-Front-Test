@@ -1,56 +1,50 @@
-import {
-  FormControl,
-  TextField,
-  Button,
-  Link as MuiLink,
-  Box,
-} from '@mui/material';
-import Cookies from 'js-cookie';
-import React from 'react';
-import { useForm } from 'react-hook-form';
-import { toast } from 'react-hot-toast';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { FormControl, TextField, Button, Link as MuiLink, Box } from '@mui/material'
+import Cookies from 'js-cookie'
+import React from 'react'
+import { useForm } from 'react-hook-form'
+import { toast } from 'react-hot-toast'
+import { useNavigate, useLocation } from 'react-router-dom'
 
-import { pageRoutes } from '@/apiRoutes';
-import { EMAIL_PATTERN, TOAST_ID } from '@/constants';
-import { useLogin } from '@/pages/login/hooks/useLogin';
-import { useUserStore } from '@/store/user';
-import { pick } from '@/utils/common';
+import { pageRoutes } from '@/apiRoutes'
+import { EMAIL_PATTERN, TOAST_ID } from '@/constants'
+import { useLogin } from '@/pages/login/hooks/useLogin'
+import { useUserStore } from '@/store/user'
+import { pick } from '@/utils/common'
 
 const Forms = () => {
-  const location = useLocation();
-  const navigate = useNavigate();
-  const { mutate } = useLogin();
-  const { setIsLogin } = useUserStore(state => pick(state, 'setIsLogin'));
+  const location = useLocation()
+  const navigate = useNavigate()
+  const { mutate } = useLogin()
+  const { setIsLogin } = useUserStore(state => pick(state, 'setIsLogin'))
 
   const handleClickRegister = () => {
-    navigate(pageRoutes.register);
-  };
+    navigate(pageRoutes.register)
+  }
 
-  const methods = useForm({ defaultValues: { email: '', password: '' } });
+  const methods = useForm({ defaultValues: { email: '', password: '' } })
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = methods;
+  } = methods
   const handleClickLoginButton = handleSubmit(forms => {
     mutate(forms, {
       onSuccess: ({ data }) => {
-        Cookies.set('access_token', data['access_token']);
-        setIsLogin(true);
-        navigate(location.state?.prevPath ?? pageRoutes.main);
+        Cookies.set('access_token', data['access_token'])
+        setIsLogin(true)
+        navigate(location.state?.prevPath ?? pageRoutes.main)
       },
       onError: err => {
         if (err?.response?.status === 401) {
           toast.error('이메일 또는 비밀번호가 잘못되었습니다.', {
             id: TOAST_ID,
-          });
+          })
         } else {
-          console.error(err);
+          console.error(err)
         }
       },
-    });
-  });
+    })
+  })
 
   return (
     <>
@@ -90,25 +84,15 @@ const Forms = () => {
           gap: '10px',
         }}
       >
-        <Button
-          variant="contained"
-          fullWidth
-          onClick={handleClickLoginButton}
-          aria-label="로그인"
-        >
+        <Button variant="contained" fullWidth onClick={handleClickLoginButton} aria-label="로그인">
           로그인
         </Button>
-        <MuiLink
-          underline="hover"
-          onClick={handleClickRegister}
-          style={{ cursor: 'pointer' }}
-          role="link"
-        >
+        <MuiLink underline="hover" onClick={handleClickRegister} style={{ cursor: 'pointer' }} role="link">
           회원가입
         </MuiLink>
       </Box>
     </>
-  );
-};
+  )
+}
 
-export default Forms;
+export default Forms

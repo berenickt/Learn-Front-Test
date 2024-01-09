@@ -1,11 +1,11 @@
-import { Skeleton } from '@mui/material';
-import React, { Suspense } from 'react';
+import { Skeleton } from '@mui/material'
+import React, { Suspense } from 'react'
 
-import ApiErrorBoundary from '@/pages/common/components/ApiErrorBoundary';
-import Layout, { authStatusType } from '@/pages/common/components/Layout';
-import AvailableUsers from '@/pages/login/components/AvailableUsers';
-import Forms from '@/pages/login/components/Forms';
-import PageTitle from '@/pages/login/components/PageTitle';
+import ApiErrorBoundary from '@/pages/common/components/ApiErrorBoundary'
+import Layout, { authStatusType } from '@/pages/common/components/Layout'
+import AvailableUsers from '@/pages/login/components/AvailableUsers'
+import Forms from '@/pages/login/components/Forms'
+import PageTitle from '@/pages/login/components/PageTitle'
 
 const LoginPage = () => {
   return (
@@ -26,7 +26,7 @@ const LoginPage = () => {
         </Suspense>
       </ApiErrorBoundary>
     </Layout>
-  );
-};
+  )
+}
 
-export default LoginPage;
+export default LoginPage

@@ -1,21 +1,8 @@
-import {
-  Button,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
-} from '@mui/material';
-import React from 'react';
+import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material'
+import React from 'react'
 
 const ConfirmModal = props => {
-  const {
-    title,
-    description,
-    handleClickDisagree,
-    handleClickAgree,
-    isModalOpened,
-  } = props;
+  const { title, description, handleClickDisagree, handleClickAgree, isModalOpened } = props
 
   return (
     <Dialog
@@ -27,9 +14,7 @@ const ConfirmModal = props => {
     >
       <DialogTitle id="modal-title">{title}</DialogTitle>
       <DialogContent>
-        <DialogContentText id="modal-description">
-          {description}
-        </DialogContentText>
+        <DialogContentText id="modal-description">{description}</DialogContentText>
       </DialogContent>
       <DialogActions>
         <Button onClick={handleClickDisagree}>취소</Button>
@@ -38,7 +23,7 @@ const ConfirmModal = props => {
         </Button>
       </DialogActions>
     </Dialog>
-  );
-};
+  )
+}
 
-export default ConfirmModal;
+export default ConfirmModal

@@ -1,6 +1,6 @@
-import cn from 'classnames';
-import React, { useState } from 'react';
-import './text.css';
+import cn from 'classnames'
+import React, { useState } from 'react'
+import './text.css'
 
 /**
  * placeholder 설정 - 테스트 작성 완료
@@ -10,33 +10,27 @@ import './text.css';
  * focus 시 onFocus 핸들러 호출
  * Enter 키 입력 시 onEnter 핸들러 호출
  */
-export default function TextField({
-  placeholder,
-  className,
-  onFocus,
-  onChange,
-  onEnter,
-}) {
-  const [value, setValue] = useState('');
-  const [focused, setFocused] = useState(false);
+export default function TextField({ placeholder, className, onFocus, onChange, onEnter }) {
+  const [value, setValue] = useState('')
+  const [focused, setFocused] = useState(false)
 
   const changeValue = ev => {
-    setValue(ev.target.value);
-    onChange?.(ev.target.value);
-  };
+    setValue(ev.target.value)
+    onChange?.(ev.target.value)
+  }
   const focus = () => {
-    setFocused(true);
-    onFocus?.();
-  };
+    setFocused(true)
+    onFocus?.()
+  }
   const blur = () => {
-    setFocused(false);
-  };
+    setFocused(false)
+  }
   const pressEnter = ev => {
     if (ev.key === 'Enter' && !ev.nativeEvent.isComposing) {
-      ev.preventDefault();
-      onEnter?.(value);
+      ev.preventDefault()
+      onEnter?.(value)
     }
-  };
+  }
 
   return (
     <input
@@ -48,9 +42,7 @@ export default function TextField({
       onKeyDown={pressEnter}
       placeholder={placeholder || '텍스트를 입력해 주세요.'}
       value={value}
-      style={
-        focused ? { borderWidth: 2, borderColor: 'rgb(25, 118, 210)' } : null
-      }
+      style={focused ? { borderWidth: 2, borderColor: 'rgb(25, 118, 210)' } : null}
     />
-  );
+  )
 }

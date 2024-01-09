@@ -1,6 +1,6 @@
-import { create } from 'zustand';
+import { create } from 'zustand'
 
-import { ALL_CATEGORY_ID } from '@/constants';
+import { ALL_CATEGORY_ID } from '@/constants'
 
 export const useFilterStore = create(set => ({
   minPrice: null,
@@ -18,4 +18,4 @@ export const useFilterStore = create(set => ({
       title: null,
       categoryId: -1,
     })),
-}));
+}))

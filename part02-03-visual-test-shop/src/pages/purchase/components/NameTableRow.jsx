@@ -1,12 +1,12 @@
-import { FormControl, TextField, TableCell, TableRow } from '@mui/material';
-import React from 'react';
-import { useFormContext } from 'react-hook-form';
+import { FormControl, TextField, TableCell, TableRow } from '@mui/material'
+import React from 'react'
+import { useFormContext } from 'react-hook-form'
 
 const NameTableRow = () => {
   const {
     register,
     formState: { errors },
-  } = useFormContext();
+  } = useFormContext()
 
   return (
     <TableRow>
@@ -24,7 +24,7 @@ const NameTableRow = () => {
         </FormControl>
       </TableCell>
     </TableRow>
-  );
-};
+  )
+}
 
-export default NameTableRow;
+export default NameTableRow

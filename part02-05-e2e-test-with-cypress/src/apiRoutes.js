@@ -8,7 +8,7 @@ export const apiRoutes = {
   couponList: '/couponList',
   purchase: '/purchase',
   log: '/log',
-};
+}
 
 export const pageRoutes = {
   main: '/',
@@ -17,4 +17,4 @@ export const pageRoutes = {
   productDetail: '/product/:productId',
   cart: '/cart',
   purchase: '/purchase',
-};
+}

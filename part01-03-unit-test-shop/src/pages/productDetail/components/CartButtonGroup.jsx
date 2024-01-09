@@ -1,24 +1,24 @@
-import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-import { Button, InputAdornment, TextField, Box } from '@mui/material';
-import React, { useState } from 'react';
-import { toast } from 'react-hot-toast';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart'
+import { Button, InputAdornment, TextField, Box } from '@mui/material'
+import React, { useState } from 'react'
+import { toast } from 'react-hot-toast'
 
-import { MAX_CART_VALUE, TOAST_ID } from '@/constants';
-import { cartValidationMessages } from '@/messages';
+import { MAX_CART_VALUE, TOAST_ID } from '@/constants'
+import { cartValidationMessages } from '@/messages'
 
 const CartButtonGroup = ({ onClickAddCart, onChangeCount }) => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0)
   const handleChangeCount = ev => {
-    const newCount = Number(ev.target.value);
+    const newCount = Number(ev.target.value)
 
     if (newCount > MAX_CART_VALUE) {
-      toast.error(cartValidationMessages.MAX_INPUT_VALUE, { id: TOAST_ID });
-      return;
+      toast.error(cartValidationMessages.MAX_INPUT_VALUE, { id: TOAST_ID })
+      return
     }
 
-    setCount(newCount);
-    onChangeCount?.(newCount);
-  };
+    setCount(newCount)
+    onChangeCount?.(newCount)
+  }
 
   return (
     <Box
@@ -50,7 +50,7 @@ const CartButtonGroup = ({ onClickAddCart, onChangeCount }) => {
         장바구니
       </Button>
     </Box>
-  );
-};
+  )
+}
 
-export default CartButtonGroup;
+export default CartButtonGroup

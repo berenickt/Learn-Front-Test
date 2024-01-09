@@ -1,42 +1,29 @@
-import {
-  Card,
-  CardActions,
-  CardContent,
-  CardMedia,
-  Button,
-  Typography,
-  Chip,
-  Grid,
-} from '@mui/material';
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Card, CardActions, CardContent, CardMedia, Button, Typography, Chip, Grid } from '@mui/material'
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
-import { pageRoutes } from '@/apiRoutes';
-import { pathToUrl } from '@/helpers/url';
-import { formatPrice } from '@/utils/formatter';
+import { pageRoutes } from '@/apiRoutes'
+import { pathToUrl } from '@/helpers/url'
+import { formatPrice } from '@/utils/formatter'
 
-const ProductCard = ({
-  product,
-  onClickAddCartButton,
-  onClickPurchaseButton,
-}) => {
-  const navigate = useNavigate();
+const ProductCard = ({ product, onClickAddCartButton, onClickPurchaseButton }) => {
+  const navigate = useNavigate()
 
   if (!product) {
-    return null;
+    return null
   }
 
-  const { title, images, price, category, id } = product;
+  const { title, images, price, category, id } = product
 
   const handleClickItem = () => {
-    navigate(pathToUrl(pageRoutes.productDetail, { productId: id }));
-  };
+    navigate(pathToUrl(pageRoutes.productDetail, { productId: id }))
+  }
   const handleClickAddCartButton = ev => {
-    onClickAddCartButton(ev, product);
-  };
+    onClickAddCartButton(ev, product)
+  }
   const handleClickPurchaseButton = ev => {
-    onClickPurchaseButton(ev, product);
-  };
+    onClickPurchaseButton(ev, product)
+  }
 
   return (
     <Grid item xs={6} sm={6} md={3} onClick={handleClickItem}>
@@ -79,7 +66,7 @@ const ProductCard = ({
         </CardActions>
       </Card>
     </Grid>
-  );
-};
+  )
+}
 
-export default ProductCard;
+export default ProductCard

@@ -1,20 +1,18 @@
-import { FormControl, TextField, TableCell, TableRow } from '@mui/material';
-import React from 'react';
-import { useFormContext } from 'react-hook-form';
+import { FormControl, TextField, TableCell, TableRow } from '@mui/material'
+import React from 'react'
+import { useFormContext } from 'react-hook-form'
 
-import { PHONE_PATTERN } from '@/constants';
+import { PHONE_PATTERN } from '@/constants'
 
 const PhoneTableRow = () => {
   const {
     register,
     formState: { errors },
-  } = useFormContext();
+  } = useFormContext()
 
   return (
     <TableRow>
-      <TableCell style={{ fontWeight: 'bold', width: '30%' }}>
-        전화번호
-      </TableCell>
+      <TableCell style={{ fontWeight: 'bold', width: '30%' }}>전화번호</TableCell>
       <TableCell>
         <FormControl fullWidth>
           <TextField
@@ -34,7 +32,7 @@ const PhoneTableRow = () => {
         </FormControl>
       </TableCell>
     </TableRow>
-  );
-};
+  )
+}
 
-export default PhoneTableRow;
+export default PhoneTableRow

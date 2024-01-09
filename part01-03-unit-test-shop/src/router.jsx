@@ -1,19 +1,19 @@
-import { CssBaseline } from '@mui/material';
-import React from 'react';
-import { Toaster } from 'react-hot-toast';
-import { createBrowserRouter, Outlet } from 'react-router-dom';
+import { CssBaseline } from '@mui/material'
+import React from 'react'
+import { Toaster } from 'react-hot-toast'
+import { createBrowserRouter, Outlet } from 'react-router-dom'
 
-import { pageRoutes } from '@/apiRoutes';
-import Cart from '@/pages/cart';
-import RootErrorBoundary from '@/pages/common/components/RootErrorHandler';
-import RootSuspense from '@/pages/common/components/RootSuspense';
-import ErrorPage from '@/pages/error/components/ErrorPage';
-import NotFoundPage from '@/pages/error/components/NotFoundPage';
-import Home from '@/pages/home';
-import LoginPage from '@/pages/login';
-import ProductDetail from '@/pages/productDetail';
-import Purchase from '@/pages/purchase';
-import RegisterPage from '@/pages/register';
+import { pageRoutes } from '@/apiRoutes'
+import Cart from '@/pages/cart'
+import RootErrorBoundary from '@/pages/common/components/RootErrorHandler'
+import RootSuspense from '@/pages/common/components/RootSuspense'
+import ErrorPage from '@/pages/error/components/ErrorPage'
+import NotFoundPage from '@/pages/error/components/NotFoundPage'
+import Home from '@/pages/home'
+import LoginPage from '@/pages/login'
+import ProductDetail from '@/pages/productDetail'
+import Purchase from '@/pages/purchase'
+import RegisterPage from '@/pages/register'
 
 const CommonLayout = () => (
   <RootErrorBoundary>
@@ -23,7 +23,7 @@ const CommonLayout = () => (
       <CssBaseline />
     </RootSuspense>
   </RootErrorBoundary>
-);
+)
 
 const router = createBrowserRouter([
   {
@@ -58,6 +58,6 @@ const router = createBrowserRouter([
       { path: '*', element: <NotFoundPage /> },
     ],
   },
-]);
+])
 
-export default router;
+export default router

@@ -1,16 +1,16 @@
-import { TableContainer, Table, TableBody, Paper } from '@mui/material';
-import React from 'react';
+import { TableContainer, Table, TableBody, Paper } from '@mui/material'
+import React from 'react'
 
-import ProductInfoTableRow from '@/pages/cart/components/ProductInfoTableRow';
-import { useCartStore } from '@/store/cart';
-import { useUserStore } from '@/store/user';
-import { pick } from '@/utils/common';
+import ProductInfoTableRow from '@/pages/cart/components/ProductInfoTableRow'
+import { useCartStore } from '@/store/cart'
+import { useUserStore } from '@/store/user'
+import { pick } from '@/utils/common'
 
 const ProductInfoTable = () => {
   const { cart, removeCartItem, changeCartItemCount } = useCartStore(state =>
     pick(state, 'cart', 'removeCartItem', 'changeCartItemCount'),
-  );
-  const { user } = useUserStore(state => pick(state, 'user'));
+  )
+  const { user } = useUserStore(state => pick(state, 'user'))
 
   return (
     <TableContainer component={Paper} sx={{ wordBreak: 'break-word' }}>
@@ -28,7 +28,7 @@ const ProductInfoTable = () => {
         </TableBody>
       </Table>
     </TableContainer>
-  );
-};
+  )
+}
 
-export default ProductInfoTable;
+export default ProductInfoTable

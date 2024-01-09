@@ -1,7 +1,7 @@
-import { CircularProgress, Box } from '@mui/material';
-import React from 'react';
+import { CircularProgress, Box } from '@mui/material'
+import React from 'react'
 
-import Layout from '@/pages/common/components/Layout';
+import Layout from '@/pages/common/components/Layout'
 
 const LoadingPage = () => {
   return (
@@ -17,7 +17,7 @@ const LoadingPage = () => {
         <CircularProgress />
       </Box>
     </Layout>
-  );
-};
+  )
+}
 
-export default LoadingPage;
+export default LoadingPage

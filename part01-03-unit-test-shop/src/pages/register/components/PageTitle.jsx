@@ -1,6 +1,6 @@
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import { Box, Typography } from '@mui/material';
-import React from 'react';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle'
+import { Box, Typography } from '@mui/material'
+import React from 'react'
 
 const PageTitle = () => {
   return (
@@ -12,7 +12,7 @@ const PageTitle = () => {
         <br /> 가능한 로그인 창에서 사용 가능 유저를 사용하세요.
       </Typography>
     </Box>
-  );
-};
+  )
+}
 
-export default PageTitle;
+export default PageTitle

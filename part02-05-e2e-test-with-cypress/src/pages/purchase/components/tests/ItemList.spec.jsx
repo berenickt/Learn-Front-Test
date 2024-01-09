@@ -1,9 +1,9 @@
-import { screen, within } from '@testing-library/react';
-import React from 'react';
+import { screen, within } from '@testing-library/react'
+import React from 'react'
 
-import ItemList from '@/pages/purchase/components/ItemList';
-import { mockUseCartStore } from '@/utils/test/mockZustandStore';
-import render from '@/utils/test/render';
+import ItemList from '@/pages/purchase/components/ItemList'
+import { mockUseCartStore } from '@/utils/test/mockZustandStore'
+import render from '@/utils/test/render'
 
 beforeEach(() => {
   mockUseCartStore({
@@ -33,21 +33,21 @@ beforeEach(() => {
     },
     totalCount: 7,
     totalPrice: 500,
-  });
-});
+  })
+})
 
 it('구매 상품들의 이름, 수량, 금액이 순서대로 노출된다.', async () => {
-  await render(<ItemList />);
+  await render(<ItemList />)
 
-  const rows = screen.getAllByRole('row');
-  const first = within(rows[0]);
-  const second = within(rows[1]);
+  const rows = screen.getAllByRole('row')
+  const first = within(rows[0])
+  const second = within(rows[1])
 
-  expect(first.getByText('Handmade Cotton Fish')).toBeInTheDocument();
-  expect(first.getByText('3개')).toBeInTheDocument();
-  expect(first.getByText('$300.00')).toBeInTheDocument();
+  expect(first.getByText('Handmade Cotton Fish')).toBeInTheDocument()
+  expect(first.getByText('3개')).toBeInTheDocument()
+  expect(first.getByText('$300.00')).toBeInTheDocument()
 
-  expect(second.getByText('Awesome Concrete Shirt')).toBeInTheDocument();
-  expect(second.getByText('4개')).toBeInTheDocument();
-  expect(second.getByText('$200.00')).toBeInTheDocument();
-});
+  expect(second.getByText('Awesome Concrete Shirt')).toBeInTheDocument()
+  expect(second.getByText('4개')).toBeInTheDocument()
+  expect(second.getByText('$200.00')).toBeInTheDocument()
+})

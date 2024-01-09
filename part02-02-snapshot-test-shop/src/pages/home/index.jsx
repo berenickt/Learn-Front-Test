@@ -1,11 +1,11 @@
-import { Grid } from '@mui/material';
-import React, { Suspense } from 'react';
+import { Grid } from '@mui/material'
+import React, { Suspense } from 'react'
 
-import ApiErrorBoundary from '@/pages/common/components/ApiErrorBoundary';
-import Layout from '@/pages/common/components/Layout';
-import ProductFilter from '@/pages/home/components/ProductFilter';
-import ProductList from '@/pages/home/components/ProductList';
-import SkeletonProductCard from '@/pages/home/components/SkeletonProductCard';
+import ApiErrorBoundary from '@/pages/common/components/ApiErrorBoundary'
+import Layout from '@/pages/common/components/Layout'
+import ProductFilter from '@/pages/home/components/ProductFilter'
+import ProductList from '@/pages/home/components/ProductList'
+import SkeletonProductCard from '@/pages/home/components/SkeletonProductCard'
 
 const Home = () => {
   return (
@@ -25,7 +25,7 @@ const Home = () => {
         </Suspense>
       </ApiErrorBoundary>
     </Layout>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home
