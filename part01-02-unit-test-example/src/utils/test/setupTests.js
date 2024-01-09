@@ -1,5 +1,11 @@
 import '@testing-library/jest-dom'
 
+/*** Library Jest DOM을 추가하여 매처를 확장
+ * toBeInTheDocument
+ * toHaveClass, ...
+ */
+
+// 모킹한 모듈의 히스토리를 초기화
 afterEach(() => {
   vi.clearAllMocks()
 })
