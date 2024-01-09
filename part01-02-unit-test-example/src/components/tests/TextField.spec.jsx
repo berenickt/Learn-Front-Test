@@ -14,18 +14,10 @@ import render from '@/utils/test/render'
  *    -> 렌더링 후 DOM에 해당 class가 존재하는지 검증
  */
 it('className prop으로 설정한 css class가 적용된다.', async () => {
-  /**** render API 호출 -> 테스트 환경의 jsDOM에 리액트 컴포넌트가 렌더링된 DOM 구조가 반영
-   * jsDOM : Node.js에서 사용하기 위해 많은 웹 표준을 순수 JS로 구현
-   * await을 사용하여 렌더링이 완료될 때까지 기다림
-   */
   await render(<TextField className="my-class" />)
 
-  // screen 객체를 사용하여 특정 텍스트 필드를 찾음
   const textInput = screen.getByPlaceholderText('텍스트를 입력해 주세요.')
 
-  /**** vitest의 expect()를 사용해 기대 결과를 검증
-   * 특정 엘리먼트가 특정 클래스를 가지고 있는지 확인
-   */
   expect(textInput).toHaveClass('my-class')
 })
 
@@ -54,14 +46,17 @@ describe('placeholder', () => {
     /**** 컴포넌트 렌더링을 위해서는 render 함수를 호출
      * React 테스팅 라이브러리의 render 함수의 결과물로
      * 렌더링된 React 컴포넌트의 DOM 구조가 JS DOM에 반영되는 것입니다.
+     * jsDOM : Node.js에서 사용하기 위해 많은 웹 표준을 순수 JS로 구현
      */
     await render(<TextField />)
 
+    // screen 객체를 사용하여 특정 텍스트 필드를 찾음
     const textInput = screen.getByPlaceholderText('텍스트를 입력해 주세요.')
 
-    // **** toBeInTheDocument 매처 : DOM에 있는지 없는지를 검증 가능
+    /**** vitest의 expect()를 사용해 기대 결과를 검증
+     * 특정 엘리먼트가 특정 클래스를 가지고 있는지 확인
+     */
     expect(textInput).toBeInTheDocument()
-    // 단언(assertion) -> 테스트가 통과하기 위한 조건 -> 검증 실행
   })
 
   it('placeholder prop에 따라 placeholder가 변경된다.', async () => {
@@ -69,17 +64,25 @@ describe('placeholder', () => {
 
     const textInput = screen.getByPlaceholderText('상품명을 입력해 주세요.')
 
+    // **** toBeInTheDocument 매처 : DOM에 있는지 없는지를 검증 가능
     expect(textInput).toBeInTheDocument()
+    // 단언(assertion) -> 테스트가 통과하기 위한 조건 -> 검증 실행
   })
 })
 
 it('텍스트를 입력하면 onChange prop으로 등록한 함수가 호출된다.', async () => {
+  /*** 스파이 함수
+   * 테스트 코드에서 특정 함수가 호출되었는지,
+   * 함수의 인자로 어ㄸ너 것이 넘어왔는지 반환하는지 등 다양한 값들을 저장
+   */
   const spy = vi.fn()
 
   const { user } = await render(<TextField onChange={spy} />)
 
   const textInput = screen.getByPlaceholderText('텍스트를 입력해 주세요.')
 
+  // type()는 내부적으로 킷다운 이벤트를 발생시키는데,
+  // 이러한 이벤트 시뮬레이션을 기반으로 실제 텍스트를 입력하는 것과 거의 동일하게 테스트 코드를 작성 가능
   await user.type(textInput, 'test')
 
   expect(spy).toHaveBeenCalledWith('test')
@@ -97,12 +100,18 @@ it('엔터키를 입력하면 onEnter prop으로 등록한 함수가 호출된�
   expect(spy).toHaveBeenCalledWith('test')
 })
 
+/*** 포커스가 활성화될 떄
+ * 탭 키로 인풋 요소로 포커스 이동
+ * 인풋 요소를 클릭했을 떄
+ * textInput.focus()로 직접 발생
+ */
 it('포커스가 활성화되면 onFocus prop으로 등록한 함수가 호출된다.', async () => {
   const spy = vi.fn()
   const { user } = await render(<TextField onFocus={spy} />)
 
   const textInput = screen.getByPlaceholderText('텍스트를 입력해 주세요.')
 
+  // click과 연관 -> 포커스, 마우스다운, 마우스업 등...
   await user.click(textInput)
 
   expect(spy).toHaveBeenCalled()
@@ -115,6 +124,9 @@ it('포커스가 활성화되면 border 스타일이 추가된다.', async () =>
 
   await user.click(textInput)
 
+  /*** toHaveStyle
+   * 스타일 매처를 사용하여 포커스가 활성화되었을 때, 지정한 border 스타일이 올바르게 적용됐는지 검증
+   */
   expect(textInput).toHaveStyle({
     borderWidth: '2px',
     borderColor: 'rgb(25, 118, 210)',

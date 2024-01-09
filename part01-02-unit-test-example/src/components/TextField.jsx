@@ -2,7 +2,7 @@ import cn from 'classnames'
 import React, { useState } from 'react'
 import './text.css'
 
-/**
+/** 작성할 테스트 코드들
  * placeholder 설정 - 테스트 작성 완료
  * className에 따른 css class 설정 - 테스트 작성 완료
  * 텍스트를 입력할 때마다 onChange 핸들러 호출
